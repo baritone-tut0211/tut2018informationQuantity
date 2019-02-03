@@ -36,9 +36,9 @@ public class Frequencer implements FrequencerInterface{
         for(int i=0; i< mySpace.length; i++) {
           int s = suffixArray[i];
           for(int j=s;j<mySpace.length;j++) {
-            System.out.write(mySpace[j]);
+            //System.out.write(mySpace[j]);
           }
-          System.out.write('\n');
+          //System.out.write('\n');
         }
       }
     }
@@ -202,8 +202,8 @@ public class Frequencer implements FrequencerInterface{
   */
   int first = subByteStartIndex(start, end);
   int last1 = subByteEndIndex(start, end);
-  System.out.println(first);
-  System.out.println(last1);
+  //System.out.println(first);
+  //System.out.println(last1);
   return last1 - first;
     }
 
