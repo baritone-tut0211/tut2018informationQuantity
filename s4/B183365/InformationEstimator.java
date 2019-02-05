@@ -47,28 +47,27 @@ public class InformationEstimator implements InformationEstimatorInterface{
 	double value;
 	double tmp;
 
-	for(int i = 0; i < myTarget.length; i++)
-	    {
+	if(myTarget == null){
+		return 0.0;
+	}
+	if(mySpace == null){
+		return Double.MAX_VALUE;
+	}
+	for(int i = 0; i < myTarget.length; i++){
 		value = 0.0;
-		for(int j = 0; j <= i; j++)
-		    {
+		for(int j = 0; j <= i; j++){
 			myFrequencer.setTarget(subBytes(myTarget, j, i+1));
-			if(j == 0)
-			    {
+			if(j == 0){
 				value = iq(myFrequencer.frequency());
-			    }
-			else
-			    {
+			    }else{
 				tmp = iqsave[j-1] + iq(myFrequencer.frequency());
-				if(value > tmp)
-				    {
+				if(value > tmp){
 					value = tmp;
 				    }
 			    }
 		    }
 		iqsave[i] = value;
 	    }
-
 	return iqsave[myTarget.length-1];
     }
 
